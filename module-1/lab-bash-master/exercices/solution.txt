@@ -1,0 +1,61 @@
+1)Print Hello World in console.
+	Used: echo Hello World
+
+2)Create a new folder named new_dir.
+	Used: mkdir new_dir
+
+3)Delete new_dir folder.
+	Used: rm -rf new_folder/
+
+4)Make a copy of sed.txt (located in the lorem folder) to lorem-copy.
+	Used: cp sed.txt ../lorem-copy
+
+5)Copy the rest of the files located in lorem to lorem-copy using only one code line (tip: use ;).
+	Used: cp at.txt lorem.txt ../lorem-copy
+
+6)Locate at lorem folder and show sed.txt content.
+	Used: cat sed.txt
+
+7)Locate at lorem folder and show at.txt and lorem.txt content.
+	Used: cat at.txt
+	Used: cat lorem.txt
+
+8)Locate at lorem-copy folder and show the first three lines of sed.txt.
+	Used: head -n3 sed.txt
+
+9)Locate at lorem-copy folder and show the last three lines of sed.txt.
+	Used: tail -3 sed.txt
+
+10)Add Homo homini lupus. at the end of sed.txt located at lorem-copy.
+	Used: nano sed.txt
+	and after that I added the text indicated in the proper place
+
+11)Locate at lorem-copy folder and show the last three lines of sed.txt. Now you should see Homo homini lupus..
+	Used: tail -3 sed.txt
+
+12)Change every et to ET in at.txt located at lorem-copy (tip: use sed).
+	Used: sed -i 's/et/ET/g' at.txt (Attention: it works in Linux but fails in Mac. In Mac I was able to use: sed 's/et/ET/g' at.txt )
+
+13)Find the active user of the system.
+	Used: echo $USER
+
+14)Find out where are you located within the system.
+	Used: pwd
+
+15)List all .txt files located at lorem.
+	Used: ls -la *.txt
+
+16)Count the number of lines in sed.txt located at lorem.
+	Used: wc -l sed.txt
+
+17)Count the number of files which name starts with lorem located at the whole lab directory.
+	Used: While located at folder "lab-bash-master/" used the command:find . -iname "lorem.*" | wc -l
+
+18)Find every appearance of et in at.txt located at lorem.
+	Used: grep -o -i 'et' at.txt | wc -l
+
+19)Find every appearance of the string et in at.txt located at lorem.
+	Used: grep -o -i et lorem.txt | wc -l
+
+20)Find every appearance of the string et located at the whole lab directory.
+	Used: grep -r et . | wc -l
