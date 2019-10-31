@@ -79,6 +79,8 @@ print(list6)
 # 6. Use a list comprehension to select and print the names of all CSV files in the /data directory.
 print('-----Exercise 6 -----')
 
+import os
+
 list7 = [f for f in os.listdir('/Users/victorgalan/ironhack/git/dataptmad1019/module-1/lab-list-comprehensions/data/') if f.endswith('.csv')]
 
 print (list7)
