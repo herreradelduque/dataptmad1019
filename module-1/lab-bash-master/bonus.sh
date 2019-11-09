@@ -39,3 +39,13 @@ for i in $( ls ); do
 	echo $cadena2
 	echo ------
 done
+
+
+htop
+
+
+ps -eo args
+
+sysctl -n machdep.cpu.brand_string
+
+
