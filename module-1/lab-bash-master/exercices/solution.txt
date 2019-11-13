@@ -12,7 +12,7 @@
 
 5)Copy the rest of the files located in lorem to lorem-copy using only one code line (tip: use ;).
 	Used: cp at.txt lorem.txt ../lorem-copy
-
+        Octavio's correction:  $ cp ./lorem/at.txt lorem-copy; cp ./lorem/lorem.txt lorem-copy
 6)Locate at lorem folder and show sed.txt content.
 	Used: cat sed.txt
 
@@ -29,7 +29,7 @@
 10)Add Homo homini lupus. at the end of sed.txt located at lorem-copy.
 	Used: nano sed.txt
 	and after that I added the text indicated in the proper place
-
+        Octavio's correction: $ echo “Homo homini lupus.” >> lorem-copy/sed.txt
 11)Locate at lorem-copy folder and show the last three lines of sed.txt. Now you should see Homo homini lupus..
 	Used: tail -3 sed.txt
 
@@ -38,7 +38,7 @@
 
 13)Find the active user of the system.
 	Used: echo $USER
-
+        OCtavio's correction: $ whoami
 14)Find out where are you located within the system.
 	Used: pwd
 
