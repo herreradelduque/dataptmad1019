@@ -1,6 +1,6 @@
 #1. Import the NUMPY package under the name np.
 
-
+#inital commit
 
 #2. Print the NUMPY version and the configuration.
 
