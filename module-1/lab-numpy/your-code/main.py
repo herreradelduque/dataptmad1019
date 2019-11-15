@@ -51,8 +51,8 @@ else:
 print('\n')
 
 #second I compare the shapes:
-print(f'Size of a: {np.shape(a)}')
-print(f'Size of b: {np.shape(b)}')
+print(f'Shape of a: {np.shape(a)}')
+print(f'Shape of b: {np.shape(b)}')
 
 if np.shape(a) != np.shape(b):
     print('a and b have different shape')
@@ -72,16 +72,13 @@ print('------------------------')
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 
-c = b.transpose()
+c = b.transpose((1,2,0))
 
 print(f' The shape of c is: {c.shape}')
 #alternative print method: print(c)
 print('\n')
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-
-#If I try to  add a and c with different shapes, I can not do the operation, so I decided to reshape a: 2x3x5 -> 3x2x5
-a = a.reshape(3,2,5)
 
 d = a + c
 
