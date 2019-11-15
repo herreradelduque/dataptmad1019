@@ -13,6 +13,7 @@ print(np.show_config())
 a = np.random.random((2,3,5))
 
 
+
 #4. Print a.
 
 print(a)
@@ -53,31 +54,50 @@ print(c.shape)
 
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
+a = a.reshape(3,2,5)
+
+#to reach the goal of #10 I have swiched 2x3x5 -> 3x2x5
 
 d = a + c
 
+print(d.shape)
+
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
+print('This is array a:')
+print(a)
+print('This is array d:')
+print(d)
 
-
-
+print('\n')
 #12. Multiply a and c. Assign the result to e.
 
-
-
+print('This is e = a * b:')
+e = a * c
+print(e)
 #13. Does e equal to a? Why or why not?
 
+if (e == a).all():
+    print('Yes, e and a are equal')
 
+else:
+    print('No, e and a are NOT equal')
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
+d_max = np.max(d)
+d_min = np.min(d)
+d_mean = np.mean(d)
 
 
+print(f'The max of d is {d_max}')
+print(f'The min of d is {d_min}')
+print(f'The mean of d is {d_mean}')
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
-
+f = np.empty((2,3,5))
 
 
 """
@@ -90,7 +110,21 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
+for i in d:
+    if i > d_min:
+        if i < d_mean:
+            f.fill(25)
+        elif i > d_mean:
+            if i < d_max:
+                f.fill(75)
+        elif i == d_mean:
+            f.fill(50)
+        elif i == d_max:
+            f.fill(100)
+    else:
+        0
 
+print(f)
 
 
 """
