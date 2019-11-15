@@ -4,19 +4,26 @@ import numpy as np
 
 #2. Print the NUMPY version and the configuration.
 
+print('np.version is')
+print('\n')
 print(np.version)
+print('\n')
+print('np.show_config() is:')
+print('\n')
 print(np.show_config())
+print('------------------------')
+print('\n')
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 
 a = np.random.random((2,3,5))
 
-
-
 #4. Print a.
 
 print(a)
+print('\n')
+print('------------------------')
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
@@ -26,9 +33,24 @@ b = np.ones((5,2,3))
 #6. Print b.
 
 print(b)
+print('\n')
+print('------------------------')
 
 #7. Do a and b have the same size? How do you prove that in Python code?
 
+#first I analize the sizes:
+print(f'Size of a: {np.size(a)}')
+print(f'Size of b: {np.size(b)}')
+
+if np.size(a) != np.size(b):
+    print('a and b have different size')
+
+else:
+    print('a and b have the same size')
+
+print('\n')
+
+#second I compare the shapes:
 print(f'Size of a: {np.shape(a)}')
 print(f'Size of b: {np.shape(b)}')
 
@@ -38,43 +60,58 @@ if np.shape(a) != np.shape(b):
 else:
     print('a and b have the same shape')
 
+print('\n')
+print('------------------------')
+
 #8. Are you able to add a and b? Why or why not?
 
-#a + b
-#unable to add a and b, because Numpy raise: "TypeError: only integer scalar arrays can be converted to a scalar index"
+# Method 1: np.sum(a,b
+# Method 2: a + b
+#Unable to add a and b, because Numpy raise: "TypeError: only integer scalar arrays can be converted to a scalar index"
 
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 
 c = b.transpose()
 
-print(c)
-
-print(c.shape)
-
+print(f' The shape of c is: {c.shape}')
+#alternative print method: print(c)
+print('\n')
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
-a = a.reshape(3,2,5)
 
-#to reach the goal of #10 I have swiched 2x3x5 -> 3x2x5
+#If I try to  add a and c with different shapes, I can not do the operation, so I decided to reshape a: 2x3x5 -> 3x2x5
+a = a.reshape(3,2,5)
 
 d = a + c
 
-print(d.shape)
+print(f' The shape of d is: {d.shape}')
+print('\n')
+
+print('This is array d:')
+print(d)
+print('\n')
+print('------------------------')
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
 print('This is array a:')
 print(a)
+print('\n')
+
 print('This is array d:')
 print(d)
-
 print('\n')
+print('------------------------')
+
 #12. Multiply a and c. Assign the result to e.
 
 print('This is e = a * b:')
 e = a * c
 print(e)
+print('\n')
+print('------------------------')
+
 #13. Does e equal to a? Why or why not?
 
 if (e == a).all():
@@ -82,7 +119,8 @@ if (e == a).all():
 
 else:
     print('No, e and a are NOT equal')
-
+print('\n')
+print('------------------------')
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
@@ -90,15 +128,17 @@ d_max = np.max(d)
 d_min = np.min(d)
 d_mean = np.mean(d)
 
-
 print(f'The max of d is {d_max}')
 print(f'The min of d is {d_min}')
 print(f'The mean of d is {d_mean}')
+print('\n')
+print('------------------------')
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
 f = np.empty((2,3,5))
-
+print('\n')
+print('------------------------')
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
@@ -110,22 +150,41 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
-for i in d:
-    if i > d_min:
-        if i < d_mean:
-            f.fill(25)
-        elif i > d_mean:
-            if i < d_max:
-                f.fill(75)
-        elif i == d_mean:
-            f.fill(50)
-        elif i == d_max:
-            f.fill(100)
-    else:
-        0
+#step1: create "flat" list od "d" array
+
+
+d_list = d.flatten()
+print(d_list)
+print('\n')
+
+#step2: create the loop to assign and add the labels to d_array
+
+d_array = []
+for value in d_list:
+        if value == d_min:
+            d_array.append(0)
+        elif d_min < value and value < d_min:
+            d_array.append(25)
+        elif value == d_mean:
+            d_array.append(50)
+        elif d_mean < value and value < d_max:
+            d_array.append(75)
+        else:
+            d_array.append(100)
+
+print(d_array)
+print('\n')
+
+#step3: create the array with the appropiate shape
+
+f = np.array(d_array).reshape(2,3,5)
+
+#step4: print de labeled array
 
 print(f)
 
+print('\n')
+print('-----------------------')
 
 """
 #17. Print d and f. Do you have your expected f?
@@ -161,3 +220,37 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+g = np.empty((2,3,5))
+print('\n')
+
+#step1: create "flat" list od "d" array
+
+d_list = d.flatten()
+print(d_list)
+print('\n')
+
+#step2: create the loop to assign and add the labels to d_array
+
+d_array_2 = []
+for value in d_list:
+        if value == d_min:
+            d_array_2.append('A')
+        elif d_min < value and value < d_min:
+            d_array_2.append('B')
+        elif value == d_mean:
+            d_array_2.append('C')
+        elif d_mean < value and value < d_max:
+            d_array_2.append('D')
+        else:
+            d_array_2.append('E')
+
+print(d_array_2)
+print('\n')
+
+#step3: create the array with the appropiate shape
+
+g = np.array(d_array_2).reshape(2,3,5)
+
+#step4: print de labeled array
+
+print(g)
