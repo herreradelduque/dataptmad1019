@@ -81,7 +81,7 @@ SELECT
 	authors.au_id AS 'AUTHOR ID',
 	authors.au_lname AS 'LAST NAME',
 	authors.au_fname AS 'FIRST NAME',
-	titles.advance + (titles.royalty * titles.ytd_sales) AS 'PROFIT'
+	(titleauthor.royaltyper/100) * (titles.advance + (titles.royalty * titles.ytd_sales) ) AS 'PROFIT'
 FROM 
 	titles
 	JOIN sales ON titles.title_id = sales.title_id
@@ -95,4 +95,4 @@ LIMIT
 	3
 ;
 
- 
+
