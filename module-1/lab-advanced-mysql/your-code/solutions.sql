@@ -69,10 +69,11 @@ WITH step_2 AS
 )
 SELECT
 	step_2.author_ID,
-	SUM(step_2.sales_royalty_sum + titles.advance) AS 'total_royalties'
+	SUM(step_2.sales_royalty_sum + titles.advance * titleauthor.royaltyper /100) AS 'total_royalties'
 FROM
 	step_2
 	JOIN titles ON titles.title_id = step_2.title_ID
+	JOIN titleauthor ON titleauthor.title_id = step_2.title_ID
 GROUP BY
 	step_2.author_ID
 ORDER BY
@@ -112,10 +113,11 @@ GROUP BY
 CREATE TEMPORARY TABLE step_3 AS
 SELECT
 	step_2.author_ID,
-	SUM(step_2.sales_royalty_sum + titles.advance) AS 'total_royalties'
+	SUM(step_2.sales_royalty_sum + (titles.advance * titleauthor.royaltyper / 100)) AS 'total_royalties'
 FROM
 	step_2
 	JOIN titles ON titles.title_id = step_2.title_ID
+	JOIN titleauthor ON titleauthor.title_id = step_2.title_ID
 GROUP BY
 	step_2.author_ID
 ORDER BY
@@ -157,10 +159,11 @@ WITH step_2 AS
 )
 SELECT
 	step_2.author_ID,
-	SUM(step_2.sales_royalty_sum + titles.advance) AS 'total_royalties'
+	SUM(step_2.sales_royalty_sum + (titles.advance * titleauthor.royaltyper / 100)) AS 'total_royalties'
 FROM
 	step_2
 	JOIN titles ON titles.title_id = step_2.title_ID
+	JOIN titleauthor ON titleauthor.title_id = step_2.title_ID
 GROUP BY
 	step_2.author_ID
 ORDER BY
@@ -169,5 +172,4 @@ LIMIT 3
 ;
 
 /* ...testing permanent table... */
-SELECT * FROM most_profiting_authors
-;
+SELECT * FROM most_profiting_authors;
