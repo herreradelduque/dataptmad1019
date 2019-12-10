@@ -4,7 +4,7 @@ When you run the code, you are prompted to enter two numbers (in the form of Eng
 word instead of number) and the operator sign (also in the form of English word).
 The code will perform the calculation and give the result if your input is what it
 expects.
-
+ 
 The code is very long and messy. Refactor it according to what you have learned about
 code simplicity and efficiency.
 """
