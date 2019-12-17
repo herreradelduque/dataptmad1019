@@ -172,19 +172,21 @@ print("Thanks for using this calculator, goodbye :)")
 
 print('Welcome to this calculator!')
 print('It can add and subtract whole numbers from zero to five')
-a = int(input('Please choose your first number (0 to 5): '))
-b = input('What do you want to do? + or -: ')
-c = int(input('Please choose your second number (0 to 5): '))
+a = str(input('Please choose your first number (zero to five): '))
+b = input('What do you want to do? plus or minus: ')
+c = str(input('Please choose your second number (zero to five): '))
 
+num = {'zero':0, 'one':1, 'two':2, 'three':3, 'four':4, 'five':5}
+op = {'plus':'+', 'minus':'-'}
 def calculator(a,b,c):
-    if a > 5 or c > 5:
+    if a and c not in num:
         print("I am not able to answer this question. Check your input.")
         print("Thanks for using this calculator, goodbye :)")
     else:
-        if b == '+':
-            print(f'{a} {b} {c} = {a+c}')
-        if b == '-':
-            print(f'{a} {b} {c} = {a-c}')
+        if b == 'plus':
+            print(f'{a} plus {c} equals {num.get(a)+num.get(c)}')
+        if b == 'minus':
+            print(f'{a} minus {c} equals {a-c}')
 
 
 calculator(a,b,c)
