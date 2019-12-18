@@ -177,6 +177,7 @@ b = input('What do you want to do? plus or minus: ')
 c = str(input('Please choose your second number (zero to five): '))
 
 num = {'zero':0, 'one':1, 'two':2, 'three':3, 'four':4, 'five':5}
+key_num = {0:'zero', 1:'one', 2:'two', 3:'three', 4:'four', 5:'five'}
 op = {'plus':'+', 'minus':'-'}
 def calculator(a,b,c):
     if a and c not in num:
@@ -184,9 +185,11 @@ def calculator(a,b,c):
         print("Thanks for using this calculator, goodbye :)")
     else:
         if b == 'plus':
-            print(f'{a} plus {c} equals {num.get(a)+num.get(c)}')
-        if b == 'minus':
-            print(f'{a} minus {c} equals {a-c}')
+            print(f'{a} plus {c} equals {key_num.get(num.get(a)+num.get(c))}')
+        elif b == 'minus' and a < c:
+            print(f'{a} minus {c} equals {key_num.get(num.get(a) - num.get(c))}')
+        else:
+            print(f'{a} minus {c} equals minus {key_num.get(num.get(c) - num.get(a))}')
 
 
 calculator(a,b,c)
