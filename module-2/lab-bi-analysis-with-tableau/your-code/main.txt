@@ -1,1 +1,6 @@
 https://public.tableau.com/profile/v.ctor.gal.n.vaquerizo#!/vizhome/lab-bi-analysis-with-tableau_15817227805960/Story1?publish=yes
+
+Note:
+Lab finished, but the data: "churn.csv", in the original repo it's wrong, it has many nulls in MonthlyCharges, and it is imposible to get the same results described in the README.txt file.
+
+Solution: Download the churn.cvs from Kaggle and replace it in repo.
