@@ -1,0 +1,8 @@
+Link to my repo of "Project 2: Tableau"
+
+https://github.com/herreradelduque/Ironhack-Module-2-Project---Tableau
+
+
+...also, link to Tableau Public:
+
+https://public.tableau.com/profile/v.ctor.gal.n.vaquerizo#!/vizhome/project_2_tableau_fia_f1/Story1?publish=yes
